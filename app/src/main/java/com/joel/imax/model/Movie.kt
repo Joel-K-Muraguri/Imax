@@ -11,5 +11,6 @@ data class Movie(
     val imageUrl : Int,
     val genre : String,
     val rating : String,
-    val description : String
+    val description : String,
+//    val time : String,
 ) : Parcelable
