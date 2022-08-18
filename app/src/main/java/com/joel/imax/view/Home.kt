@@ -31,12 +31,12 @@ fun Home(
            Column(modifier = Modifier.padding(8.dp)) {
                Text(
                    text = "Hey Joel",
-                   style = MaterialTheme.typography.h3
+                   style = MaterialTheme.typography.h5
                )
 
                Text(
                    text = "Welcome to my Movie App",
-                   style = MaterialTheme.typography.h5
+                   style = MaterialTheme.typography.h6
                )
            }
         }

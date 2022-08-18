@@ -13,7 +13,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.joel.imax.R
 import com.joel.imax.model.Movie
 import com.joel.imax.view.destinations.DetailsDestination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
