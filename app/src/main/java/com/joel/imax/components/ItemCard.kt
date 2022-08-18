@@ -1,6 +1,7 @@
 package com.joel.imax.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
@@ -24,8 +25,9 @@ fun ItemCard(
     navigator: DestinationsNavigator
 ){
     Card(
-        modifier = Modifier.padding(10.dp),
-
+        modifier = Modifier
+            .padding(10.dp)
+            .focusable(),
         shape = RoundedCornerShape(20.dp),
         elevation = 5.dp,
         onClick = {
@@ -47,14 +49,22 @@ fun ItemCard(
                 FavouriteButton()
             }
 
-            val image = painterResource(movie.imageUrl)
-            Image(
-                painter = image,
-                contentDescription = "movie name",
-                modifier = Modifier
-                    .width(300.dp)
-                    .height(300.dp)
-            )
+            Card(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                val image = painterResource(movie.imageUrl)
+                Image(
+                    painter = image,
+                    contentDescription = "movie name",
+                    modifier = Modifier
+                        .width(500.dp)
+                        .height(300.dp)
+                )
+            }
+            
+            Rating()
+            Text(text = movie.rating)
+           
             Text(
                 text = movie.genre,
                 style = MaterialTheme.typography.caption

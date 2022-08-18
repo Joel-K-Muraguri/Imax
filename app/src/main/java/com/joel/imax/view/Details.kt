@@ -26,6 +26,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.joel.imax.R
+import com.joel.imax.components.Rating
 import com.joel.imax.model.Movie
 import com.joel.imax.view.destinations.HomeDestination
 import com.ramcosta.composedestinations.annotation.Destination
@@ -39,17 +40,12 @@ fun Details(
     movie: Movie
 ) {
     LazyColumn(
-        modifier = Modifier.padding(15.dp)
+        modifier = Modifier
+            .padding(12.dp)
     ){
         item {
-           ToolsButton(navigator)
-        }
-        item{
-            Text(
-                text = movie.name,
-                style = MaterialTheme.typography.h5,
-                textAlign = TextAlign.Center
-            )
+
+            ToolsButton(navigator)
 
             val image = painterResource(id = movie.imageUrl)
             Image(
@@ -59,6 +55,49 @@ fun Details(
                     .fillMaxWidth(),
                 contentScale = ContentScale.FillWidth
             )
+        }
+        item{
+
+
+            Text(
+                text = movie.name,
+                style = MaterialTheme.typography.h5,
+                textAlign = TextAlign.Center
+            )
+
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Button(
+                    onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors(
+                        backgroundColor = Color.Red,
+                        contentColor = Color.White
+                    ),
+                    modifier = Modifier.padding(5.dp),
+                    shape = RoundedCornerShape(10.dp)
+                ) {
+                    val play = painterResource(id = R.drawable.ic_baseline_play_arrow_24)
+                    Icon(
+                        painter = play,
+                        contentDescription = ""
+                    )
+                    Spacer(modifier = Modifier.width(5.dp))
+                    Text(text = "Play Trailer")
+                }
+            }
+
+
+
+            Column(
+                modifier = Modifier.padding(10.dp)
+            ) {
+                Rating()
+                Text(text = movie.rating)
+            }
+
+
             Text(
                 text = movie.description,
                 style = MaterialTheme.typography.caption
@@ -147,5 +186,21 @@ fun ToolsButton(
             }
         }
         }
+}
+
+@Composable
+fun MainContent(){
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier.offset(
+            x = 100.dp,
+            y = 170.dp
+        )
+    ) {
+        Column{
+
+
+        }
     }
+}
 
